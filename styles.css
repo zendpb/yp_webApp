@@ -1,0 +1,55 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0; 
+}
+
+.auth-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 19px;
+}
+
+h3 {
+    text-align: start;
+    margin: 0; 
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="password"] {
+    width: 92%;
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0097a7;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-container a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #0097a7;
+    text-decoration: none;
+}
