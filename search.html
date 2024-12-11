@@ -3,22 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Авторизация</title>
+    <title>Форма поиска</title>
     <link rel="stylesheet" href="styles3.css">
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f0f8ff; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Изменено для вертикального выравнивания */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 300px; /* Изменено для лучшего отображения */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #0097a7; 
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #007f8c; /* Изменен цвет при наведении */
+        }
+
+        #results {
+            margin-top: 20px; /* Отступ сверху для результатов */
+            width: 300px; /* Ширина результатов */
+        }
+    </style>
 </head>
 <body>
-    <div class="auth-container">
-        <h2>Введите параметр поиска</h2>
-        
-          
-            <input type="text"  required>
-            
-            <button type="button" id="search" onclick="window.location.href='#'">Поиск</button>
-       
-       
+    <div class="search-container">
+        <label for="search">Введите параметр поиска:</label>
+        <input type="text" id="search" name="search">
+        <button type="button" onclick="performSearch()">Поиск</button>
     </div>
+    <div id="results"></div>
 
+    <script>
+        function performSearch() {
+            var searchQuery = document.getElementById('search').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'search.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('results').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send('search=' + encodeURIComponent(searchQuery));
+        }
+    </script>
 </body>
 </html>
-
-

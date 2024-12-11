@@ -9,18 +9,12 @@
 <body>
     <div class="auth-container">
         <h2>Авторизация</h2>
-        <form>  
-            <h3>Логин</h3>
-            <input type="text"  required>
-            <h3>Пароль</h3>
-            <input type="password" required>
-            
-            <button type="button" id="loginButton" onclick="window.location.href='register.html'">Войти</button>
+        <form action="login.php" method="POST">
+            <input type="text" name="login" placeholder="Логин" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Войти</button>
         </form>
-        <a href="register.html">Зарегистрироваться</a>
+        <a href="register.html" id="register">Зарегистрироваться</a>
     </div>
-
 </body>
 </html>
-
-
